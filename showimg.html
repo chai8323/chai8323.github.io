@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>Auto Display</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; }
+  .slideshow-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+  }
+  .slides {
+    display: none;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<h2>Auto Display Images</h2>
+
+<div class="slideshow-container">
+  <img class="slides" src="https://picsum.photos/id/1015/600/400">
+  <img class="slides" src="https://picsum.photos/id/1016/600/400">
+  <img class="slides" src="https://picsum.photos/id/1018/600/400">
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slides");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 2000); // 每2秒切换一次
+}
+</script>
+
+</body>
+</html>
