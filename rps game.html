@@ -1,0 +1,51 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Welcome to our RPS game!</h2>
+        <button onclick='rps()'>Start the Game</button>
+        <h3 id='result'></h3>
+        <h3 id='win'></h3> 
+        <h3 id='count'></h3>     
+        <script>
+
+    let pw = 0;
+    let cw = 0; 
+    
+    function rps() {
+
+    let choices = ['r','p','s'];
+    let cc = choices[Math.floor(Math.random()*3)];
+    let pc = prompt('choose r or p or s');
+    
+    document.getElementById('result').innerHTML = 
+   'player chose ' + pc + ' and ' + 'computer chose '+ cc;
+    
+    if(cc == pc){
+    document.getElementById('win').innerHTML = 
+    'tie game!';
+}
+    else{
+        if((pc === 'r' && cc === 's')||((pc === 'p' && cc === 'r'))||((pc === 's' && cc === 'p')) ){
+        document.getElementById('win').innerHTML = 'you win!';
+        pw++;    
+    }
+        else{
+         document.getElementById('win').innerHTML = 'You lose';
+         cw++;
+    }
+}
+        document.getElementById('count').innerHTML = 'players wins: ' + pw + ' and ' + 'computer wins: ' + cw;
+        
+        if(pw == 4 || cw == 4){
+            alert('game over');
+            location.reload();
+        }
+}
+        </script>
+    </body>
+</html>
+
+
+
+
+
